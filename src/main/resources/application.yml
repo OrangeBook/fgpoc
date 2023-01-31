@@ -1,15 +1,13 @@
-name: bob
-
 workers:
-  - xml:
-      - name: id
-        type: string
-      - name: age
-        type: int
-  - txt:
-      - name: implemented
-        type: boolean
-  - json:
-      - name: firstName
-        type: String
+  xml:
+    - name: id
+      type: text
+    - name: age
+      type: number
+  txt:
+    - name: implemented
+      type: checkbox
+  json:
+    - name: firstName
+      type: text
 

@@ -1,8 +1,18 @@
 <html>
 <head>
-  <title>Welcome!</title>
+  <title>Tools</title>
 </head>
-<body>
-<h1>Welcome ${name}!</h1>
+<br>
+
+
+<#list workers as name, fields>
+<p>Worker ${name}: </p>
+    <#list fields as field>
+  ${field.getName()} <input type="${field.getType()}" name="${field.getName()}" value="Type here"/></br>
+    </#list> </br>
+
+</#list>
+
+
 </body>
 </html>

@@ -19,9 +19,6 @@ public class FirstController {
   @Autowired
   public List<Worker> workers;
 
-  @Value("${name}")
-  String name;
-
   @GetMapping("/workers")
   @ResponseBody
   public String getWorkers() {
@@ -38,8 +35,9 @@ public class FirstController {
 
   @GetMapping("/")
   public String hello(Model model) {
-    System.out.println(name);
-    model.addAttribute("name", name);
+    model.addAttribute("workers", config.getWorkers());
     return "hello";
   }
+
+
 }
