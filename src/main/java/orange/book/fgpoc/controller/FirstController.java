@@ -1,6 +1,7 @@
 package orange.book.fgpoc.controller;
 
 import java.util.List;
+import orange.book.fgpoc.config.WorkersConfiguration;
 import orange.book.fgpoc.service.Worker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class FirstController {
 
   @Autowired
+  private WorkersConfiguration config;
+
+  @Autowired
   public List<Worker> workers;
 
   @Value("${name}")
@@ -22,8 +26,13 @@ public class FirstController {
   @ResponseBody
   public String getWorkers() {
     StringBuilder sb = new StringBuilder();
-    sb.append("We have such workers: \n");
+    sb.append("We have such workers: ");
+    sb.append("</br>");
     sb.append(workers.toString());
+    sb.append("</br>");
+    sb.append("We have such configuration:");
+    sb.append("</br>");
+    sb.append(config.toString());
     return sb.toString();
   }
 
