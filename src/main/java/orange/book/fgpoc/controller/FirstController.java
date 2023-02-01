@@ -27,7 +27,7 @@ public class FirstController {
   private WorkersConfiguration config;
 
   @Autowired
-  public List<Worker> workers;
+  public Map<String, Worker> workers;
 
   @GetMapping("/workers")
   @ResponseBody
@@ -49,14 +49,26 @@ public class FirstController {
     return "hello";
   }
 
-  @PostMapping(value = "/calculate",
-      consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-
+  @PostMapping( value = "/calculate",
+                consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
   @ResponseBody
-  public String calculated(@RequestBody MultiValueMap<String, String> formData
-                          ) {
-    System.out.println(formData);
-    return formData.toString();
+  public String calculated(@RequestBody MultiValueMap<String, String> formData) {
+    StringBuilder sb = new StringBuilder();
+    sb.append("Form data:");
+    sb.append(formData);
+    sb.append("</br>");
+    sb.append("Available workers:");
+    sb.append("</br>");
+    sb.append(workers);
+
+    String workerName = formData.getFirst("worker");
+    Worker worker = workers.get(workerName);
+
+    sb.append("</br>");
+    sb.append("Chosen worker:" + worker.toString());
+    sb.append("</br>");
+    sb.append(worker.calculate(formData));
+    return sb.toString();
 
   }
 

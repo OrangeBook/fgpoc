@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties
-
 public class WorkersConfiguration {
 
   public Map<String, List<Field>> workers;
