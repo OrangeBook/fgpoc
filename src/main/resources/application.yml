@@ -1,20 +1,20 @@
 workers:
-  xmlWorker:
+  pdfWorker:
     - name: id
       type: text
     - name: age
       type: number
-  txtWorker:
+  excelWorker:
     - name: implemented
       type: checkbox
-  json:
+  photoWorker:
     - name: firstName
       type: text
-#  yml:
-#    - name: weight
-#      type: number
-#    - name: name
-#      type: text
-#    - name: isGood
-#      type: checkbox
+  specificWorker:
+    - name: weight
+      type: number
+    - name: name
+      type: text
+    - name: isGood
+      type: checkbox
 
