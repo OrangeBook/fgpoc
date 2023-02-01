@@ -7,9 +7,9 @@
 
 <#list workers as name, fields>
 <p>Worker ${name}: </p>
-  <form action="/calculate" method="post">
+  <form action="/calculate?worker=${name}" method="post">
     <#list fields as field>
-      <input type="${field.getType()}" name="${field.getName()}" value="Type here"/></br>
+      <input type="${field.getType()}" name="${field.getName()}" /></br>
     </#list> </br>
     <input type="submit" value="Submit" />
   </form>

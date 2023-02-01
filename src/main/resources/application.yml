@@ -10,4 +10,11 @@ workers:
   json:
     - name: firstName
       type: text
+  yml:
+    - name: weight
+      type: number
+    - name: name
+      type: text
+    - name: isGood
+      type: checkbox
 
